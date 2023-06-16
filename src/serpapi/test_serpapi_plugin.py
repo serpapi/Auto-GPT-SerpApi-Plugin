@@ -100,14 +100,26 @@ class TestAutoGPTSerpApiSearch(unittest.TestCase):
     def test_get_params_no_engine(self):
         params = _get_params("test query")
         self.assertDictEqual(
-            params, {"engine": "google", "q": "test query", "api_key": "secret"}
+            params,
+            {
+                "engine": "google",
+                "q": "test query",
+                "api_key": "secret",
+                "source": "serpapi-auto-gpt-plugin",
+            },
         )
 
     def test_get_params_engine_query_non_q(self):
         os.environ["SERPAPI_ENGINE"] = "yahoo"
         params = _get_params("test query")
         self.assertDictEqual(
-            params, {"engine": "yahoo", "p": "test query", "api_key": "secret"}
+            params,
+            {
+                "engine": "yahoo",
+                "p": "test query",
+                "api_key": "secret",
+                "source": "serpapi-auto-gpt-plugin",
+            },
         )
 
     def test_get_params_no_cache_true(self):
@@ -120,6 +132,7 @@ class TestAutoGPTSerpApiSearch(unittest.TestCase):
                 "q": "test query",
                 "no_cache": "true",
                 "api_key": "secret",
+                "source": "serpapi-auto-gpt-plugin",
             },
         )
 
@@ -132,6 +145,7 @@ class TestAutoGPTSerpApiSearch(unittest.TestCase):
                 "engine": "google",
                 "q": "test query",
                 "api_key": "secret",
+                "source": "serpapi-auto-gpt-plugin",
             },
         )
 

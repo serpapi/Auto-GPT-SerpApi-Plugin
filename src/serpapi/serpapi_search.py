@@ -73,10 +73,7 @@ def _get_params(query: str):
     engine = os.getenv("SERPAPI_ENGINE") or "google"
     no_cache = os.getenv("SERPAPI_NO_CACHE")
     api_key = os.getenv("SERPAPI_API_KEY")
-    params = {
-        "engine": engine,
-        "api_key": api_key,
-    }
+    params = {"engine": engine, "api_key": api_key, "source": "serpapi-auto-gpt-plugin"}
 
     if no_cache and no_cache != "false":
         params["no_cache"] = "true"
