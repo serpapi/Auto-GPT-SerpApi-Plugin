@@ -1,0 +1,5 @@
+auto_gpt_plugin_template
+pytest
+pytest-cov
+requests
+requests-mock
